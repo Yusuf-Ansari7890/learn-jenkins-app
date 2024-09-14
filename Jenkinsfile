@@ -46,7 +46,7 @@ pipeline {
             steps{
                 sh''' echo "End 2  End satge added"
                       npm install serve
-                      serve -s build
+                      node_modules/.bin/serve -s build
                       npx playwright test
                 
                 '''
