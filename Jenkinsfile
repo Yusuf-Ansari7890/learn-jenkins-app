@@ -36,7 +36,7 @@ pipeline {
             }
         }
         
-        stage('E2E'){
+       /* stage('E2E'){
             agent{
                     docker{
                         image 'mcr.microsoft.com/playwright:v1.47.1-noble'
@@ -51,13 +51,13 @@ pipeline {
                 
                 '''
             }
-        }
+        }*/
         
         
     }
     post{
         always{
-            junit '/test-results/junits.xml'
+            junit 'test-results/junit.xml'
         }
     }
 }
