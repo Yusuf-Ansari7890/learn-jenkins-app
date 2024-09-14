@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        NETLIFT_SIDE_ID = 'b8c6023c-3b4a-4e26-b9fa-6fac41515637'
+    }
 
     stages {
         stage('Build') {
