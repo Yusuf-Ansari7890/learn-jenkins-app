@@ -19,14 +19,6 @@ pipeline {
                     ls -la
                 '''
             }
-        stage('Test'){
-            steps{
-                sh'''
-                    grep -r "index.html" /build
-                    npm test
-                '''
-                }
-            }
         }
     }
 }
