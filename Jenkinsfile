@@ -24,6 +24,7 @@ pipeline {
             steps{
                 sh''' echo "test stage added"
                       grep -r "index.html" /var/jenkins_home/workspace/learn-jenkins-app/build 
+                      npm test
                 
                 '''
             }
