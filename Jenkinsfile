@@ -36,10 +36,28 @@ pipeline {
             }
         }
         
+        stage('E2E'){
+            agent{
+                    docker{
+                        image 'mcr.microsoft.com/playwright:v1.47.1-noble'
+                        reuseNode true
+                    }
+                }
+            steps{
+                sh''' echo "End 2  End satge added"
+                      npm install serve
+                      serve -s build
+                      npx playwright test
+                
+                '''
+            }
+        }
+        
+        
     }
     post{
         always{
-            junit '**/jest-results/junits.xml'
+            junit '/jest-results/junits.xml'
         }
     }
 }
