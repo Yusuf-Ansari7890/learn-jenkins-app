@@ -48,7 +48,7 @@ pipeline {
                       npm install serve
                       node_modules/.bin/serve -s build & # will start in background
                       sleep 10
-                      npx playwright test
+                      npx playwright test --reporter=html
                 
                 '''
             }
