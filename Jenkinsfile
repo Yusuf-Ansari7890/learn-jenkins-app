@@ -38,23 +38,23 @@ pipeline {
             }
         }
         
-        stage('E2E'){
-            agent{
-                    docker{
-                        image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
-                        reuseNode true
+            stage('E2E'){
+                agent{
+                        docker{
+                            image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                            reuseNode true
+                        }
                     }
+                steps{
+                    sh''' echo "End 2  End satge added"
+                        npm install serve
+                        node_modules/.bin/serve -s build & # will start in background
+                        sleep 10
+                        npx playwright test --reporter=html
+                    
+                    '''
                 }
-            steps{
-                sh''' echo "End 2  End satge added"
-                      npm install serve
-                      node_modules/.bin/serve -s build & # will start in background
-                      sleep 10
-                      npx playwright test --reporter=html
-                
-                '''
             }
-        }
         
         
     }
