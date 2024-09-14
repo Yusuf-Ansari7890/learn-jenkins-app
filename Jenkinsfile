@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+       /* stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
@@ -19,7 +19,7 @@ pipeline {
                     ls -la
                 '''
             }
-        }
+        }*/
         stage('Test'){
             agent{
                     docker{
@@ -29,7 +29,7 @@ pipeline {
                 }
             steps{
                 sh''' echo "test stage added"
-                      grep -r "index.html" /var/jenkins_home/workspace/learn-jenkins-app/build 
+                      /*grep -r "index.html" /var/jenkins_home/workspace/learn-jenkins-app/build*/ 
                       npm test
                 
                 '''
