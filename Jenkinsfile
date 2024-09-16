@@ -84,6 +84,7 @@ pipeline {
             }
         } 
         stage('Approval'){
+            echo "Deploying for prod"
             steps{input message: 'Ready to Deploy?', ok: 'Yes I am sure, I want to Deploy!
             } 
         }
