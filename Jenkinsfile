@@ -90,7 +90,6 @@ pipeline {
                 }
             }
         } 
-        }
         stage('Deploy Prod') {
             agent {
                 docker {
