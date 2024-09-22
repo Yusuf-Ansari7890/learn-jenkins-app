@@ -16,6 +16,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo "Build Id changed"
                     echo "Running via poll SCM"
                     ls -la
                     node --version
