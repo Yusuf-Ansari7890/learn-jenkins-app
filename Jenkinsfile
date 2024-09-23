@@ -91,7 +91,7 @@ pipeline {
         stage('Deploy Prod') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'myplaywright'
                     reuseNode true
                 }
             }
