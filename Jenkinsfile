@@ -56,11 +56,11 @@ pipeline {
                         }
                     }
                 steps{
-                    sh''' echo "End 2  End satge added"
-                        npm install serve
-                        node_modules/.bin/serve -s build & # will start in background
-                        sleep 10
-                        npx playwright test --reporter=html
+                    sh''' 
+                    echo "End 2  End satge added"
+                    serve -s build & # will start in background
+                    sleep 10
+                    npx playwright test --reporter=html
                     
                     '''
                 }
@@ -98,7 +98,7 @@ pipeline {
             steps {
                 sh '''
                    npm install netlify-cli node-jq
-                    node_modules/.bin/netlify --version
+                   netlify --version
                    node --version
                    echo "Deploying to Production Site ID : $NETLIFY_SITE_ID"
                    node_modules/.bin/netlify status
