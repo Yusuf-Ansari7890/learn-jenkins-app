@@ -7,15 +7,10 @@ pipeline {
     }
 
     stages {
-        stage('Docker'){
-            steps{
-                sh'docker build -t myplaywright .'
-            }
-        }
         stage('Build') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'myplaywright'
                     reuseNode true
                 }
             }
@@ -36,8 +31,8 @@ pipeline {
                 stage('Unit Test'){
             agent{
                     docker{
-                        image 'node:18-alpine'
-                        reuseNode true
+                            image 'myplaywright'
+                            reuseNode true
                     }
                 }
             steps{
